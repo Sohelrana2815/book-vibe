@@ -57,7 +57,7 @@ const BookDetails = () => {
               </p>
             ))}
           </div>
-          <div className="divider"></div>
+          <div className="divider"> </div>
           <div className="flex items-center gap-16">
             <div className="text-base font-normal text-[#131313] space-y-3">
               <p>Number of Pages:</p>
