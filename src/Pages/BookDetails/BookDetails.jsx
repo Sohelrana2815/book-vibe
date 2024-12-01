@@ -57,7 +57,7 @@ const BookDetails = () => {
               </p>
             ))}
           </div>
-          <div className="divider"> </div>
+          <div className="divider"></div>
           <div className="flex items-center gap-16">
             <div className="text-base font-normal text-[#131313] space-y-3">
               <p>Number of Pages:</p>
@@ -83,7 +83,7 @@ const BookDetails = () => {
             <button className="btn  text-lg bg-[#50b1c9] text-white">
               Wishlist
             </button>
-            <SnackbarProvider autoHideDuration={2000} />
+            <SnackbarProvider autoHideDuration={3000} />
           </div>
         </div>
       </div>
