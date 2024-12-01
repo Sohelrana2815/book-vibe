@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { SnackbarProvider, enqueueSnackbar } from "notistack";
+import { saveReadBooks } from "../../Utility/SaveReadBook";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -12,8 +13,13 @@ const BookDetails = () => {
 
   console.log(idInt, book);
 
-  const noteStack = () => {
-    enqueueSnackbar("Hello World!");
+  const readBook = (idInt) => {
+    const isRead = saveReadBooks(idInt);
+    if (isRead) {
+      enqueueSnackbar("You have read this book.", { variant: "success" });
+    } else {
+      enqueueSnackbar("You have already read this book.", { variant: "error" });
+    }
   };
 
   return (
@@ -67,14 +73,17 @@ const BookDetails = () => {
             </div>
           </div>
           <div className="mt-[32px] flex gap-4">
-            <button onClick={noteStack} className="btn btn-outline text-lg ">
+            <button
+              onClick={() => readBook(idInt)}
+              className="btn btn-outline text-lg "
+            >
               Read
             </button>
 
             <button className="btn  text-lg bg-[#50b1c9] text-white">
               Wishlist
             </button>
-            <SnackbarProvider variant="success" />
+            <SnackbarProvider autoHideDuration={2000} />
           </div>
         </div>
       </div>
