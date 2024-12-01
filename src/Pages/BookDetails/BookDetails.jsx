@@ -1,6 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { SnackbarProvider, enqueueSnackbar } from "notistack";
 import { saveReadBooks } from "../../Utility/SaveReadBook";
+import { saveWishListBooks } from "../../Utility/SaveWishListBook";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -19,6 +20,17 @@ const BookDetails = () => {
       enqueueSnackbar("You have read this book.", { variant: "success" });
     } else {
       enqueueSnackbar("You have already read this book.", { variant: "error" });
+    }
+  };
+
+  const wishList = (idInt) => {
+    const inWishList = saveWishListBooks(idInt);
+    if (inWishList) {
+      enqueueSnackbar("Book Added In Wish List!", { variant: "success" });
+    } else {
+      enqueueSnackbar("This Book Already In Your Wish List!", {
+        variant: "warning",
+      });
     }
   };
 
@@ -80,7 +92,10 @@ const BookDetails = () => {
               Read
             </button>
 
-            <button className="btn  text-lg bg-[#50b1c9] text-white">
+            <button
+              onClick={() => wishList(idInt)}
+              className="btn  text-lg bg-[#50b1c9] text-white"
+            >
               Wishlist
             </button>
             <SnackbarProvider autoHideDuration={3000} />
