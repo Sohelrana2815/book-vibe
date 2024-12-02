@@ -1,3 +1,5 @@
+import { BiMenu } from "react-icons/bi";
+import { BsMenuButton } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -19,26 +21,9 @@ const Navbar = () => {
     <>
       <div className="navbar bg-base-100 md:mt-16 mt-6">
         <div className="navbar-start">
-          <div className="dropdown mt-1">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost lg:hidden btn-xs"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+          <div className="dropdown pr-2">
+            <div tabIndex={0} role="button" className="lg:hidden">
+              <BiMenu className="text-2xl" />
             </div>
             <ul
               tabIndex={0}
