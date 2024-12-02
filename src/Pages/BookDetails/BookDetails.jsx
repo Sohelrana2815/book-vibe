@@ -14,24 +14,22 @@ const BookDetails = () => {
 
   console.log(idInt, book);
 
-  const readBook = (idInt) => {
-    const isRead = saveReadBooks(idInt);
-    if (isRead) {
-      enqueueSnackbar("You have read this book.", { variant: "success" });
-    } else {
-      enqueueSnackbar("You have already read this book.", { variant: "error" });
-    }
+  // Handle marking a book as read
+  const readBook = (id) => {
+    const { success, message } = saveReadBooks(id);
+
+    enqueueSnackbar(message, {
+      variant: success ? "success" : "error",
+    });
   };
 
-  const wishList = (idInt) => {
-    const inWishList = saveWishListBooks(idInt);
-    if (inWishList) {
-      enqueueSnackbar("Book Added In Wish List!", { variant: "success" });
-    } else {
-      enqueueSnackbar("This Book Already In Your Wish List!", {
-        variant: "warning",
-      });
-    }
+  // Handle adding a book to the wish list
+
+  const wishList = (id) => {
+    const { success, message } = saveWishListBooks(id);
+    enqueueSnackbar(message, {
+      variant: success ? "success" : "warning",
+    });
   };
 
   return (
