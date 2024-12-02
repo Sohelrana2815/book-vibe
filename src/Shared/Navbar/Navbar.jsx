@@ -17,9 +17,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 md:mt-16 mt-6">
         <div className="navbar-start">
-          <div className="dropdown text-xs">
+          <div className="dropdown mt-1">
             <div
               tabIndex={0}
               role="button"
@@ -48,7 +48,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-            <span className="md:text-xl text-sm hover:text-gray-500 hover:cursor-pointer font-WorkSans">
+            <span className="md:text-xl text-lg hover:text-gray-500 hover:cursor-pointer font-WorkSans">
               Book Vibe
             </span>
           </Link>

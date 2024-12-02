@@ -11,7 +11,7 @@ const Banner = () => {
             Books to freshen up your bookshelf
           </p>
           <Link to="listedBooks">
-            <button className="btn btn-sm md:btn-md bg-[#23be0a] text-white font-WorkSans md:text-lg text-xs">
+            <button className="btn btn-sm md:btn-md bg-[#23be0a] text-white font-WorkSans md:text-lg text-xs md:my-4 my-2">
               View The List
             </button>
           </Link>

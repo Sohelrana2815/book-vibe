@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <div className="lg:pt-[100px]">
+      <div className="lg:pt-[100px] pt-8">
         <footer className=" bg-base-200 text-base-content rounded p-10 ">
           <div className="footer  footer-center max-w-screen-xl mx-auto">
             <nav className="grid grid-flow-col gap-4">
