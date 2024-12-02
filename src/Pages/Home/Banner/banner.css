@@ -1,0 +1,3 @@
+.banner-style {
+  @apply flex items-center md:justify-evenly justify-between border md:min-h-[600px] bg-[#1313130D] bg-opacity-5 rounded-3xl p-3;
+}

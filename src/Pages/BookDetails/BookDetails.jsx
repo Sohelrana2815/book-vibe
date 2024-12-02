@@ -28,7 +28,7 @@ const BookDetails = () => {
   const wishList = (id) => {
     const { success, message } = saveWishListBooks(id);
     enqueueSnackbar(message, {
-      variant: success ? "success" : "warning",
+      variant: success ? "info" : "warning",
     });
   };
 

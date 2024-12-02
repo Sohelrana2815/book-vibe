@@ -17,10 +17,14 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100 lg:mt-[68px] lg:w-[1170px] mx-auto">
+      <div className="navbar bg-base-100">
         <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div className="dropdown text-xs">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden btn-xs"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -44,7 +48,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-            <span className="text-xl hover:text-gray-500 hover:cursor-pointer font-WorkSans">
+            <span className="md:text-xl text-sm hover:text-gray-500 hover:cursor-pointer font-WorkSans">
               Book Vibe
             </span>
           </Link>
@@ -53,10 +57,10 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end flex gap-2">
-          <button className="btn bg-[#23be0a] text-white  font-WorkSans">
+          <button className="btn md:btn-md bg-[#23be0a] text-white  font-WorkSans btn-sm">
             Sign in
           </button>
-          <button className="btn bg-[#59c6d2] text-white font-WorkSans">
+          <button className="btn btn-sm md:btn-md bg-[#59c6d2] text-white font-WorkSans">
             Sign up
           </button>
         </div>
