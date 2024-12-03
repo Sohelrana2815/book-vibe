@@ -3,12 +3,12 @@ import { BiSort } from "react-icons/bi";
 const ListedBooks = () => {
   return (
     <>
-      <div className="border bg-[#131313] bg-opacity-5 lg:w-[1170px] lg:h-[100px] rounded-2xl mx-auto mt-9">
-        <div className="flex justify-center items-center lg:h-[100px]">
+      <div>
+        <div className="border bg-[#131313] bg-opacity-5   rounded-2xl flex justify-center py-9">
           <h3 className="text-2xl font-bold">Books</h3>
         </div>
         {/* Dropdown button */}
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center  mt-8">
           <div className="dropdown">
             <div
               tabIndex={0}
