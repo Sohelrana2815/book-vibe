@@ -34,14 +34,75 @@ const BookDetails = () => {
 
   return (
     <>
-      <div className="max-w-screen-xl mx-auto border min-h-[720px] md:flex justify-between">
-     <div className="max-w-[600px] border p-4">
-      <img src= {book.image} alt="" />
-     </div>
-     {/* Text content */}
-     <div className="max-w-[600px] border p-4">
-      world
-     </div>
+      <div className="max-w-screen-xl mx-auto min-h-[700px] md:max-h-[720px] md:flex justify-start md:gap-12 md:mt-14 lg:mt-16">
+        <div className="max-w-[600px] bg-gray-100 p-10 rounded-2xl">
+          <img src={book.image} alt="" className="w-full" />
+        </div>
+        {/* Text content */}
+        <div className="max-w-[600px] p-4 ">
+          <h2 className="md:text-4xl font-PlayFair font-bold">
+            {book.bookName}
+          </h2>
+          <p className="md:text-xl font-medium font-WorkSans">
+            By: {book.author}
+          </p>
+
+          <div className="divider"></div>
+          <p className="md:text-xl font-medium font-WorkSans">
+            {book.category}
+          </p>
+          <div className="divider"></div>
+          <p className="font-WorkSans">
+            <span className="font-bold ">Review: </span>
+            {book.review}
+          </p>
+
+          <div className="flex gap-2 items-center">
+            <h3 className="font-bold font-WorkSans">Tag</h3>
+            {book.tags.map((tag, index) => (
+              <p
+                key={index}
+                className="font-medium font-WorkSans text-[#23be0a] bg-[#23be0a] rounded-3xl px-4 py-[7px] bg-opacity-5"
+              >
+                #{tag}
+              </p>
+            ))}
+          </div>
+          <div className="divider"></div>
+
+          {/* Container bookInfo */}
+          <div className="flex items-center gap-x-16">
+            {/* Name of content */}
+            <div className="font-WorkSans md:leading-relaxed">
+              <p>Number of Pages:</p>
+              <p>Publisher:</p>
+              <p>Year of Publishing:</p>
+              <p>Rating:</p>
+            </div>
+
+            {/* Info div */}
+            <div className="font-WorkSans font-semibold md:leading-relaxed">
+              <p>{book.totalPages}</p>
+              <p>{book.publisher}</p>
+              <p>{book.yearOfPublishing}</p>
+              <p>{book.rating}</p>
+            </div>
+          </div>
+
+          {/* Button */}
+          <div className="text-lg font-WorkSans flex gap-x-4 mt-8">
+            <button onClick={() => readBook(idInt)} className="btn btn-outline">
+              Read
+            </button>
+            <button
+              onClick={() => wishList(idInt)}
+              className="btn bg-[#50b1c9] text-white"
+            >
+              Wishlist
+            </button>
+            <SnackbarProvider />
+          </div>
+        </div>
       </div>
     </>
   );
