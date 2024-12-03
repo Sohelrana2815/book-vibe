@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import { BiSort } from "react-icons/bi";
 import { useLoaderData } from "react-router-dom";
+import { getStoredReadBooks } from "../../Utility/SaveReadBook";
 
 const ListedBooks = () => {
   const listedBooks = useLoaderData();
 
-  
+  // useEffect(()=>{
+  //   const readBookIds = getStoredReadBooks();
+
+  //   if(listedBooks.length>0){
+  //     const readBooks = listedBooks.filter()
+  //   }
+  // },[])
 
   return (
     <>
