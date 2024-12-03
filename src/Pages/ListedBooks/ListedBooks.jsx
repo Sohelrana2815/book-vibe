@@ -1,6 +1,11 @@
 import { BiSort } from "react-icons/bi";
+import { useLoaderData } from "react-router-dom";
 
 const ListedBooks = () => {
+  const listedBooks = useLoaderData();
+
+  
+
   return (
     <>
       <div>
