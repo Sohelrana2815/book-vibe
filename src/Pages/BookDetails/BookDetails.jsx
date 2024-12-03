@@ -40,20 +40,25 @@ const BookDetails = () => {
         </div>
         {/* Text content */}
         <div className="max-w-[600px] p-4 ">
-          <h2 className="md:text-4xl font-PlayFair font-bold">
-            {book.bookName}
-          </h2>
-          <p className="md:text-xl font-medium font-WorkSans">
-            By: {book.author}
-          </p>
+          {/* name and author */}
+          <div className="space-y-3">
+            <h2 className="md:text-4xl font-PlayFair font-bold">
+              {book.bookName}
+            </h2>
+            <p className="md:text-xl font-medium font-WorkSans">
+              By: {book.author}
+            </p>
+          </div>
 
           <div className="divider"></div>
+
           <p className="md:text-xl font-medium font-WorkSans">
             {book.category}
           </p>
           <div className="divider"></div>
-          <p className="font-WorkSans">
-            <span className="font-bold ">Review: </span>
+          {/* Review and tags */}
+          <p className="font-WorkSans pb-4">
+            <span className="font-bold">Review: </span>
             {book.review}
           </p>
 
@@ -68,6 +73,7 @@ const BookDetails = () => {
               </p>
             ))}
           </div>
+
           <div className="divider"></div>
 
           {/* Container bookInfo */}
