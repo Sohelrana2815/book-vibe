@@ -42,7 +42,7 @@ const BookDetails = () => {
         <div className="max-w-[600px] p-4 ">
           {/* name and author */}
           <div className="space-y-3">
-            <h2 className="md:text-4xl font-PlayFair font-bold">
+            <h2 className="md:text-4xl text-2xl font-PlayFair font-bold">
               {book.bookName}
             </h2>
             <p className="md:text-xl font-medium font-WorkSans">

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <>
-      <div className="banner-style">
+      <div className="banner-style ">
         {/* text content */}
         <div className="md:max-w-[600px] md:space-y-6 space-y-2">
           <p className="font-bold font-PlayFair md:text-6xl text-xl md:leading-relaxed">
