@@ -1,25 +1,22 @@
-import { useEffect, useState } from "react";
 import { BiSort } from "react-icons/bi";
 import { useLoaderData } from "react-router-dom";
+import useFilteredBooks from "../../Utility/useFilteredBooks";
 import { getStoredReadBooks } from "../../Utility/SaveReadBook";
+import { getStoredWishListBooks } from "../../Utility/SaveWishListBook";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const ListedBooks = () => {
-  const [readBooks, setReadBooks] = useState([]);
-
+  // Load the full list of books from the router loader
   const books = useLoaderData();
 
-  console.log(books);
+  // Use custom hook to filter books for "Read List"
 
-  useEffect(() => {
-    const readBookIds = getStoredReadBooks();
+  const readBooks = useFilteredBooks(books, getStoredReadBooks);
 
-    console.log(readBookIds);
+  // Use custom hook to filter books for "Wishlist"
 
-    if (books.length > 0) {
-      const readList = books.filter((book) => readBookIds.includes(book.id));
-      setReadBooks(readList);
-    }
-  }, [books]);
+  const wishListBooks = useFilteredBooks(books, getStoredWishListBooks);
 
   return (
     <>
@@ -51,14 +48,38 @@ const ListedBooks = () => {
           </div>
         </div>
       </div>
+
+      {/* Wishlist Books Section */}
+      {/* 
       <div>
-        <h2 className="text-center">{readBooks.length}</h2>
+        <h2 className="text-center">Wishlist Books: {wishListBooks.length}</h2>
         <ul className="list-disc">
-          {readBooks.map((readBook, index) => (
-            <li key={index}>{readBook.bookName}</li>
+          {wishListBooks.map((book, index) => (
+            <li key={index}>{book.bookName}</li>
           ))}
         </ul>
-      </div>
+      </div> */}
+
+      <Tabs>
+        <TabList>
+          <Tab>Read List</Tab>
+          <Tab>Wish List</Tab>
+        </TabList>
+
+        <TabPanel>
+          {/* Read Books Section */}
+          <div className="border rounded-xl m">
+            <ul className="list-disc">
+              {readBooks.map((book, index) => (
+                <li key={index}>{book.bookName}</li>
+              ))}
+            </ul>
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <h2>Wishlist Books</h2>
+        </TabPanel>
+      </Tabs>
     </>
   );
 };
