@@ -5,6 +5,7 @@ import { getStoredReadBooks } from "../../Utility/SaveReadBook";
 import { getStoredWishListBooks } from "../../Utility/SaveWishListBook";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import ListedBooksCard from "./ListedBooksCard";
 
 const ListedBooks = () => {
   // Load the full list of books from the router loader
@@ -67,13 +68,10 @@ const ListedBooks = () => {
         </TabList>
 
         <TabPanel>
-          {/* Read Books Section */}
-          <div className="border rounded-xl m">
-            <ul className="list-disc">
-              {readBooks.map((book, index) => (
-                <li key={index}>{book.bookName}</li>
-              ))}
-            </ul>
+          <div>
+            {readBooks.map((book) => (
+              <ListedBooksCard key={book.id} book={book} />
+            ))}
           </div>
         </TabPanel>
         <TabPanel>
