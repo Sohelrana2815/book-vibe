@@ -1,8 +1,10 @@
 import { BiBook, BiCalendar } from "react-icons/bi";
 import { BsPeople } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const ListedBooksCard = ({ book }) => {
   const {
+    id,
     image,
     bookName,
     author,
@@ -17,16 +19,17 @@ const ListedBooksCard = ({ book }) => {
     <>
       {/* Read Books Section */}
       <div className="border rounded-xl min-h-72 p-6">
-        {/* Image container and img styles */}
-        <div className="flex flex-col md:flex-row gap-6 itec">
+        <div className="md:flex md:flex-row gap-6 items-center">
+          {/* Image container and img styles */}
           <div className="md:w-72 border rounded-xl md:mx-0 flex items-center justify-center py-6 bg-gray-100">
             <img src={image} className="md:max-w-40 max-w-36" />
           </div>
-          {/* Text layout */}
 
+          {/* Text layout */}
           <div>
-            <div className="space-y-4">
-              <p className="md:text-2xl font-bold font-PlayFair">{bookName}</p>
+            {/* BookName and author */}
+            <div className="space-y-4 pt-5 md:pt-0">
+              <p className="text-2xl font-bold font-PlayFair">{bookName}</p>
               <p className="font-medium font-WorkSans">By: {author}</p>
             </div>
             {/* tags and year of publishing */}
@@ -57,7 +60,7 @@ const ListedBooksCard = ({ book }) => {
               </p>
             </div>
             <div className="divider"></div>
-
+            {/* Category and rating */}
             <div className="md:flex items-center gap-3 space-y-4 md:space-y-0">
               <p className="bg-blue-600 bg-opacity-10 rounded-full px-4 py-2">
                 Category: {category}
@@ -65,9 +68,11 @@ const ListedBooksCard = ({ book }) => {
               <p className="bg-orange-600 bg-opacity-10 rounded-full px-4 py-2">
                 Rating: {rating}
               </p>
-              <button className="btn rounded-full bg-[#23be0a] text-white font-WorkSans  btn-sm mt-2 md:btn-md md:mb-2">
-                View Details
-              </button>
+              <Link to={`/bookDetails/${id}`}>
+                <button className="btn rounded-full bg-[#23be0a] text-white font-WorkSans  btn-sm mt-2 md:btn-md md:px-5 md:text-lg md:mb-2">
+                  View Details
+                </button>
+              </Link>
             </div>
           </div>
         </div>
