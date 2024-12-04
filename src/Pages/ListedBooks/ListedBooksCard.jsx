@@ -1,7 +1,7 @@
 import { BiBook, BiCalendar } from "react-icons/bi";
 import { BsPeople } from "react-icons/bs";
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const ListedBooksCard = ({ book }) => {
   const {
     id,
@@ -79,6 +79,22 @@ const ListedBooksCard = ({ book }) => {
       </div>
     </>
   );
+};
+
+ListedBooksCard.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    bookName: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    review: PropTypes.string.isRequired,
+    totalPages: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    publisher: PropTypes.string.isRequired,
+    yearOfPublishing: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default ListedBooksCard;

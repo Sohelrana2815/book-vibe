@@ -1,19 +1,8 @@
 import { BiStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 const BooksCard = ({ book }) => {
-  const {
-    id,
-    bookName,
-    author,
-    image,
-    review,
-    totalPages,
-    rating,
-    category,
-    tags,
-    publisher,
-    yearOfPublishing,
-  } = book;
+  const { id, bookName, author, image, rating, category, tags } = book;
 
   return (
     <>
@@ -57,6 +46,22 @@ const BooksCard = ({ book }) => {
       </Link>
     </>
   );
+};
+
+BooksCard.propTypes = {
+  book: PropTypes.shape(
+    {
+      id: PropTypes.number.isRequired,
+      bookName: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      review: PropTypes.string.isRequired,
+      totalPages: PropTypes.number.isRequired,
+      rating: PropTypes.number.isRequired,
+      category: PropTypes.string.isRequired,
+      tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }.isRequired
+  ),
 };
 
 export default BooksCard;
