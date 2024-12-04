@@ -1,10 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BiSort } from "react-icons/bi";
 import { useLoaderData } from "react-router-dom";
 import { getStoredReadBooks } from "../../Utility/SaveReadBook";
 
 const ListedBooks = () => {
+  const [readBooks, setReadBooks] = useState([]);
+
   const books = useLoaderData();
+
   console.log(books);
 
   useEffect(() => {
@@ -14,6 +17,7 @@ const ListedBooks = () => {
 
     if (books.length > 0) {
       const readList = books.filter((book) => readBookIds.includes(book.id));
+      setReadBooks(readList);
     }
   }, [books]);
 
@@ -46,6 +50,14 @@ const ListedBooks = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div>
+        <h2 className="text-center">{readBooks.length}</h2>
+        <ul className="list-disc">
+          {readBooks.map((readBook, index) => (
+            <li key={index}>{readBook.bookName}</li>
+          ))}
+        </ul>
       </div>
     </>
   );
