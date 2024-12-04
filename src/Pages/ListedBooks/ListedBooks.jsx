@@ -68,7 +68,7 @@ const ListedBooks = () => {
         </TabList>
 
         <TabPanel>
-          <div>
+          <div className="grid gap-4">
             {readBooks.map((book) => (
               <ListedBooksCard key={book.id} book={book} />
             ))}
