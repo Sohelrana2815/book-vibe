@@ -4,15 +4,18 @@ import { useLoaderData } from "react-router-dom";
 import { getStoredReadBooks } from "../../Utility/SaveReadBook";
 
 const ListedBooks = () => {
-  const listedBooks = useLoaderData();
+  const books = useLoaderData();
+  console.log(books);
 
-  // useEffect(()=>{
-  //   const readBookIds = getStoredReadBooks();
+  useEffect(() => {
+    const readBookIds = getStoredReadBooks();
 
-  //   if(listedBooks.length>0){
-  //     const readBooks = listedBooks.filter()
-  //   }
-  // },[])
+    console.log(readBookIds);
+
+    if (books.length > 0) {
+      const readList = books.filter((book) => readBookIds.includes(book.id));
+    }
+  }, [books]);
 
   return (
     <>
