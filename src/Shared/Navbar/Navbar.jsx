@@ -1,5 +1,4 @@
 import { BiMenu } from "react-icons/bi";
-import { BsMenuButton } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {

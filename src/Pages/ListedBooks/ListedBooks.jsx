@@ -1,4 +1,3 @@
-import { BiSort } from "react-icons/bi";
 import { useLoaderData } from "react-router-dom";
 import useFilteredBooks from "../../Utility/useFilteredBooks";
 import { getStoredReadBooks } from "../../Utility/SaveReadBook";
@@ -6,54 +5,32 @@ import { getStoredWishListBooks } from "../../Utility/SaveWishListBook";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ListedBooksCard from "./ListedBooksCard";
+import { Dropdown } from "shineout";
 
 const ListedBooks = () => {
-  // Load the full list of books from the router loader
+  // Load books data
   const books = useLoaderData();
 
-  // Use custom hook to filter books for "Read List"
-
+  // Filter books for Read List and Wish List
   const readBooks = useFilteredBooks(books, getStoredReadBooks);
-
-  // Use custom hook to filter books for "Wishlist"
 
   const wishListBooks = useFilteredBooks(books, getStoredWishListBooks);
 
-  // sort event handler
+  // States for sorted books
 
-  const handleDisplayBySort = (rating) => {
-    console.log(rating);
-  };
+  // Function to handle sorting
+
+  // ShineOut dropdown data
 
   return (
     <>
-      <div>
-        {/* Headline for List of Books */}
-        <div className="border bg-[#131313] bg-opacity-5   rounded-2xl flex justify-center py-9">
-          <h3 className="text-2xl font-bold">Books</h3>
-        </div>
-        {/* Dropdown button */}
-        <div className="flex justify-center  mt-8">
-          <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn m-1 bg-[#23be0a] text-white text-center text-lg font-semibold"
-            >
-              Sort By <BiSort />
-            </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-            >
-              <li>
-                <a onClick={() => handleDisplayBySort("Rating")}>
-                  Highest Rating
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+      {/* Headline for List of Books */}
+      <div className="border bg-[#131313] bg-opacity-5   rounded-2xl flex justify-center py-9">
+        <h3 className="text-2xl font-bold">Books</h3>
+      </div>
+      {/* ShineOut Dropdown button */}
+      <div className="flex justify-center">
+        <Dropdown placeholder="Sort By" />
       </div>
 
       <Tabs>
