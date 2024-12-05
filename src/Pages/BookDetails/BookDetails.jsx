@@ -34,12 +34,12 @@ const BookDetails = () => {
 
   return (
     <>
-      <div className="max-w-screen-xl mx-auto md:max-h-[720px] md:flex justify-start md:gap-12 md:mt-14 lg:mt-16">
-        <div className="md:max-w-[600px] bg-gray-100 p-20 rounded-2xl flex items-center justify-center">
-          <img src={book.image} alt="" />
+      <div className="max-w-screen-xl mx-auto md:min-h-[720px]  md:flex  md:gap-12 md:mt-14 lg:mt-16">
+        <div className=" md:w-1/2 border py-8 md:py-16 px-20 bg-gray-100 rounded-2xl">
+          <img src={book.image} alt="" className="" />
         </div>
         {/* Text content */}
-        <div className="max-w-[600px] p-4 ">
+        <div className="w-1/2 mt-8">
           {/* name and author */}
           <div className="space-y-3">
             <h2 className="md:text-4xl text-2xl font-PlayFair font-bold">
