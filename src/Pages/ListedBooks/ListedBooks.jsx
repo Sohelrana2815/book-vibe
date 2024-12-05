@@ -19,9 +19,16 @@ const ListedBooks = () => {
 
   const wishListBooks = useFilteredBooks(books, getStoredWishListBooks);
 
+  // sort event handler
+
+  const handleDisplayBySort = (rating) => {
+    console.log(rating);
+  };
+
   return (
     <>
       <div>
+        {/* Headline for List of Books */}
         <div className="border bg-[#131313] bg-opacity-5   rounded-2xl flex justify-center py-9">
           <h3 className="text-2xl font-bold">Books</h3>
         </div>
@@ -40,26 +47,14 @@ const ListedBooks = () => {
               className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
+                <a onClick={() => handleDisplayBySort("Rating")}>
+                  Highest Rating
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-
-      {/* Wishlist Books Section */}
-      {/* 
-      <div>
-        <h2 className="text-center">Wishlist Books: {wishListBooks.length}</h2>
-        <ul className="list-disc">
-          {wishListBooks.map((book, index) => (
-            <li key={index}>{book.bookName}</li>
-          ))}
-        </ul>
-      </div> */}
 
       <Tabs>
         <TabList>
