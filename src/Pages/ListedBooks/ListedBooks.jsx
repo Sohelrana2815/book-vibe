@@ -6,23 +6,28 @@ import { getStoredWishListBooks } from "../../Utility/SaveWishListBook";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ListedBooksCard from "./ListedBooksCard";
+import { Dropdown, Message } from "shineout";
+import { useState } from "react";
 
 const ListedBooks = () => {
-  // Load the full list of books from the router loader
+  // Load books data
   const books = useLoaderData();
 
-  // Use custom hook to filter books for "Read List"
-
+  // Filter books for Read List and Wish List
   const readBooks = useFilteredBooks(books, getStoredReadBooks);
-
-  // Use custom hook to filter books for "Wishlist"
 
   const wishListBooks = useFilteredBooks(books, getStoredWishListBooks);
 
-  // sort event handler
+  // States for sorted books
+  const [sortedReadBooks, setSortedReadBooks] = useState(readBooks);
+  const [sortedWishListBooks, setSortedWishListBooks] = useState(wishListBooks);
 
-  const handleDisplayBySort = (rating) => {
-    console.log(rating);
+  // Function to handle sorting
+
+  const handleSortBooks = (listType, order) => {
+    const sortBooksByRating = (list) => {
+      [...list].sort((a,b)=> order === "hi")
+    };
   };
 
   return (
