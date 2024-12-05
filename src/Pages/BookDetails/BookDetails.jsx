@@ -39,7 +39,7 @@ const BookDetails = () => {
           <img src={book.image} alt="" className="" />
         </div>
         {/* Text content */}
-        <div className="w-1/2 mt-8">
+        <div className="md:w-1/2 mt-8 ">
           {/* name and author */}
           <div className="space-y-3">
             <h2 className="md:text-4xl text-2xl font-PlayFair font-bold">
@@ -96,7 +96,7 @@ const BookDetails = () => {
           </div>
 
           {/* Button */}
-          <div className="text-lg font-WorkSans flex gap-x-4 mt-8">
+          <div className="text-lg font-WorkSans flex gap-x-4 mt-8 flex-col md:flex-row gap-y-4 md:gap-y-0">
             <button onClick={() => readBook(idInt)} className="btn btn-outline">
               Read
             </button>

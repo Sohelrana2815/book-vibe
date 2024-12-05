@@ -18,10 +18,10 @@ const ListedBooksCard = ({ book }) => {
   return (
     <>
       {/* Read Books Section */}
-      <div className="border rounded-xl min-h-72 p-6">
-        <div className="md:flex md:flex-row gap-6 items-center">
+      <div className="md:border rounded-xl min-h-72 md:p-6 font-WorkSans">
+        <div className="md:flex gap-6 items-center">
           {/* Image container and img styles */}
-          <div className="md:w-72 border rounded-xl md:mx-0 flex items-center justify-center py-6 bg-gray-100">
+          <div className="md:w-80 border rounded-xl md:mx-0 flex items-center justify-center py-6 bg-gray-100">
             <img src={image} className="md:max-w-40 max-w-36" />
           </div>
 
@@ -30,15 +30,15 @@ const ListedBooksCard = ({ book }) => {
             {/* BookName and author */}
             <div className="space-y-4 pt-5 md:pt-0">
               <p className="text-2xl font-bold font-PlayFair">{bookName}</p>
-              <p className="font-medium font-WorkSans">By: {author}</p>
+              <p className="font-medium">By: {author}</p>
             </div>
             {/* tags and year of publishing */}
             <div className="md:flex  items-center gap-4 py-3 space-y-3 md:space-y-0">
               <div className="flex gap-4 items-center">
-                <p className="font-bold font-WorkSans ">Tag</p>
+                <p className="font-bold">Tag</p>
                 {tags.map((tag, index) => (
                   <p
-                    className="text-[#23be0a] bg-[#23be0a] bg-opacity-5 px-3 py-2 rounded-3xl"
+                    className="text-[#23be0a] bg-[#23be0a] bg-opacity-5 px-2 py-2 rounded-3xl  font-medium text-sm md:text-base"
                     key={index}
                   >
                     #{tag}
@@ -59,9 +59,9 @@ const ListedBooksCard = ({ book }) => {
                 <BiBook /> Total Pages: {totalPages}
               </p>
             </div>
-            <div className="divider"></div>
+            <div className="divider hidden md:block"></div>
             {/* Category and rating */}
-            <div className="md:flex items-center gap-3 space-y-4 md:space-y-0">
+            <div className="md:flex items-center gap-3 space-y-4 md:space-y-0 my-6 md:my-0">
               <p className="bg-blue-600 bg-opacity-10 rounded-full px-4 py-2">
                 Category: {category}
               </p>
@@ -69,10 +69,11 @@ const ListedBooksCard = ({ book }) => {
                 Rating: {rating}
               </p>
               <Link to={`/bookDetails/${id}`}>
-                <button className="btn rounded-full bg-[#23be0a] text-white font-WorkSans  btn-sm mt-2 md:btn-md md:px-5 md:text-lg md:mb-2">
+                <button className="btn rounded-full bg-[#23be0a] text-white w-full mt-2 md:btn-md md:px-5 md:text-lg md:mb-2">
                   View Details
                 </button>
               </Link>
+              <div className="divider md:hidden py-8"></div>
             </div>
           </div>
         </div>
