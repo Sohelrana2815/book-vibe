@@ -7,17 +7,14 @@ import "react-tabs/style/react-tabs.css";
 import ListedBooksCard from "./ListedBooksCard";
 
 const ListedBooks = () => {
- // Load the full list of books from the route loader
- const books = useLoaderData();
+  // Load books data
+  const books = useLoaderData();
 
- // Use custom hook to filter books for "Read List"
- const readBooks = useFilteredBooks(books, getStoredReadBooks);
+  // Use custom hook to filter books for "Read List"
+  const readBooks = useFilteredBooks(books, getStoredReadBooks);
 
- // Use custom hook to filter books for "Wishlist"
- const wishListBooks = useFilteredBooks(books, getStoredWishListBooks);
-
-
-
+  // Use custom hook to filter books for "Wishlist"
+  const wishListBooks = useFilteredBooks(books, getStoredWishListBooks);
 
   return (
     <>
@@ -25,9 +22,8 @@ const ListedBooks = () => {
       <div className="border bg-[#131313] bg-opacity-5   rounded-2xl flex justify-center py-9">
         <h3 className="text-2xl font-bold">Books</h3>
       </div>
-     
-      <Tabs>
 
+      <Tabs>
         <TabList>
           <Tab>Read List</Tab>
           <Tab>Wish List</Tab>
@@ -46,7 +42,6 @@ const ListedBooks = () => {
             ))}
           </div>
         </TabPanel>
-
       </Tabs>
     </>
   );
