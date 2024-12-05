@@ -5,7 +5,6 @@ import { getStoredWishListBooks } from "../../Utility/SaveWishListBook";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ListedBooksCard from "./ListedBooksCard";
-import { Dropdown } from "shineout";
 
 const ListedBooks = () => {
   // Load books data
@@ -16,11 +15,11 @@ const ListedBooks = () => {
 
   const wishListBooks = useFilteredBooks(books, getStoredWishListBooks);
 
-  // States for sorted books
+  // sort event handler
 
-  // Function to handle sorting
-
-  // ShineOut dropdown data
+  const handleDisplayBySort = (rating) => {
+    console.log(rating);
+  };
 
   return (
     <>
