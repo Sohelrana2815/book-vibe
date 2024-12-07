@@ -4,15 +4,47 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   const navLinks = (
     <>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/listedBooks">Listed Books</NavLink>
-      </li>
-      <li>
-        <NavLink to="/pagesToRead">Pages to Read</NavLink>
-      </li>
+      <div className="lg:flex lg:flex-row lg:space-x-4">
+        <li>
+          {" "}
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "border-2 border-green-500 text-green-500 px-3 py-1 rounded"
+                : ""
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/listedBooks"
+            className={({ isActive }) =>
+              isActive
+                ? "border-2 border-green-500 text-green-500 px-3 py-1 rounded"
+                : ""
+            }
+          >
+            {" "}
+            Listed Books{" "}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/pagesToRead"
+            className={({ isActive }) =>
+              isActive
+                ? "border-2 border-green-500 text-green-500 px-3 py-1 rounded"
+                : ""
+            }
+          >
+            {" "}
+            Pages to Read{" "}
+          </NavLink>
+        </li>
+      </div>
     </>
   );
 
